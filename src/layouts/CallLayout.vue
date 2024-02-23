@@ -112,6 +112,7 @@
       switch-indicator
       indicator-color="primary"
       class="bg-indigo-14 text-white shadow-2 rounded-borders"
+      style="border-radius: 50px;"
       
     >
       <q-tab  icon="more_horiz"  class="butn"/>
