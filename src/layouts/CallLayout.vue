@@ -78,10 +78,11 @@
         -->
         <div class=" absolute" style="top: 35px; right: -17px">
           <q-btn
+          text-color="indigo-14"
             dense
             round
             unelevated
-            color="indigo-14"
+            color="white"
             icon="chevron_left"
             @click="miniState = true"
           ></q-btn>
