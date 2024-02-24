@@ -31,53 +31,33 @@
   
           <p class="text-body1 text-grey-8 text-weight-bold mobile-only">Calls</p>
           <p class="text-h5 text-grey-8 text-weight-bold desktop-only q-ml-md">Calls</p>
+          
       </div>
       <div class="row justify-around ">
-          <div class="col-12 col-md-5 q-mt-lg" @click="fullHeight = true">
-              <div class="row justify-between">
-                  <div class="col-2 ">
-                      <q-item clickable>
-  
-                          <q-item-section avatar>
-                              <q-avatar color="indigo-14" text-color="white">
-  
-                              </q-avatar>
-                          </q-item-section>
-                      </q-item>
-                      <!-- <q-img rounded src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ63k8LAmwJJxlKvu88GBE_Svx-ad-rsWiZ0C4sZUwWA&s" class="rounded"></q-img> -->
-                  </div>
-                  <div class="col-4 col-md-5">
-                      <span class="text-black text-weight-medium text-body2">+91 8248952135</span><br>
-                      <span class="text-grey text-weight-medium  text-body2">Batman</span>
-                  </div>
-                  <div class="col-5 col-md-5">
-                      <span class="text-grey text-weight-medium text-body2">batman@gmail.com</span><br>
-                      <span class="text-black  text-body2 text-weight-medium">Full Stack Developer</span>
-                  </div>
-              </div>
-          </div>
-          <div class="col-12 col-md-5 q-mt-lg" @click="fullHeight = true">
-              <div class="row justify-between">
-                  <div class="col-2">
-                      <q-item clickable v-ripple>
-  
-                          <q-item-section avatar>
-                              <q-avatar color="indigo-14" text-color="white">
-  
-                              </q-avatar>
-                          </q-item-section>
-                      </q-item>
-                  </div>
-                  <div class="col-4 col-md-5">
-                      <span class="text-black text-weight-medium text-body2">+91 8248952135</span> <br>
-                      <span class="text-grey text-weight-medium text-body2">Batman</span>
-                  </div>
-                  <div class="col-5 col-md-5">
-                      <span class="text-grey text-weight-medium text-body2">batman@gmail.com</span><br>
-                      <span class="text-black  text-body2 text-weight-medium">Full Stack Developer</span>
-                  </div>
-              </div>
-          </div>
+        <div class="col-12 col-md-5 q-mt-lg" @click="fullHeight = true" v-for="callers in callDetails" :key="callers">
+            <div class="row justify-between">
+                <div class="col-2 ">
+                    <q-item clickable>
+
+                        <q-item-section avatar>
+                            <q-avatar color="indigo-14" text-color="white">
+
+                            </q-avatar>
+                        </q-item-section>
+                    </q-item>
+                    <!-- <q-img rounded src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ63k8LAmwJJxlKvu88GBE_Svx-ad-rsWiZ0C4sZUwWA&s" class="rounded"></q-img> -->
+                </div>
+                <div class="col-4 col-md-5">
+                    <span class="text-black text-weight-medium text-body2">+91 {{ callers.phoneno }}</span><br>
+                    <span class="text-grey text-weight-medium  text-body2">{{ callers.callername }}</span>
+                </div>
+                <div class="col-5 col-md-5">
+                    <span class="text-grey text-weight-medium text-body2">{{ callers.email }}</span><br>
+                    <span class="text-black  text-body2 text-weight-medium">{{ callers.course }}</span>
+                </div>
+            </div>
+        </div>
+        
       </div>
       <q-dialog v-model="fullHeight" full-width>
           <q-card>
@@ -171,7 +151,23 @@
           return {
             date: null,
   
-              fullHeight: ref(false)
+              fullHeight: ref(false),
+              callDetails:[
+                {
+                    phoneno: 8248952135,
+                    callername:"Batman",
+                    email:"batman@gmail.com",
+                    course:"Full Stack Developer",
+
+                },
+                {
+                    phoneno: 8248952135,
+                    callername:"Batman",
+                    email:"batman@gmail.com",
+                    course:"Full Stack Developer",
+
+                }
+            ]
           }
       },
       
